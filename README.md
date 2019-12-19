@@ -1,15 +1,19 @@
 ###  Ensibuuko Test
 Dockerize PHP Laravel API  Backend &amp; Frontend
 
-#### Requirements
-##### Install  the following
+#### Get started 
+##### General Requirements
    - PHP 7.2
-   - [docker](https://www.docker.com/) 
+   - [Docker](https://www.docker.com/) 
    - composer (php dependency manager)
    - vue-cli (frontend app)
    - Node 10.15
 
-#### To run
+#### Setup 
+- Clone the code base
+   ```
+   $ git clone https://github.com/aldookware/ensibuuko.git 
+   ```
 - Docker bulild
    ```
    $ docker-compose build
@@ -18,3 +22,5 @@ Dockerize PHP Laravel API  Backend &amp; Frontend
   ```
   $ docker-compose up -d
   ```
+- In the browser of choice (chrome/firefox/safari) fully tested with chrome load. 
+`http://localhost:3030`
