@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+  db:
+    image: mysql:5.7.28
+    container_name: db
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    environment:  # should consider putting this in an env file. 
+      - MYSQL_DATABASE=ensibuuko 
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=Test@32_
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      - mysql-data:/var/lib/mysql/
+      - ./db:/docker-entrypoint-initdb.d
+
+volumes:
+  mysql-data:
+    driver: local
