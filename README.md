@@ -1,5 +1,5 @@
 ###  Ensibuuko Test
-Dockerize PHP Laravel API  Backend &amp; Frontend
+PHP Laravel API  Backend &amp; Frontend, setup using Docker
 
 #### Get started 
 ##### General Requirements
@@ -14,7 +14,7 @@ Dockerize PHP Laravel API  Backend &amp; Frontend
    ```
    $ git clone https://github.com/aldookware/ensibuuko.git 
    ```
-- Docker bulild
+- Docker build
    ```
    $ docker-compose build
    ```
