@@ -6,26 +6,33 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from 'axios'
 export default {
   props: {
     msg: String
   },
-  data(){
+  data () {
     return {
-      fields: ['Country', 'Saccos', 'Deposites', 'Withdrawal','Net Gains'],
-      data: [], 
+      fields: [
+        { key: 'Country', label: 'Country' },
+        { key: 'Saccos', label: 'Saccos' },
+        { key: 'Deposit', label: 'Deposits' },
+        { key: 'Withdrawal', label: 'Withdrawals' },
+        { key: 'Net', label: 'Net Gains' }
+      ],
+      data: []
     }
   },
 
-  created: async function(){
+  created: async function () {
     try {
-      const response = await axios.get(`/api/reports/transactions`);
-      this.tData =  response;
+      const response = await axios.get(`/api/reports/transactions`)
+      console.log(response)
+      this.data = response.data
     } catch (error) {
       throw new Error(
         `[Transaction Report] ${error}`
-    )
+      )
     }
   }
 }

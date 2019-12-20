@@ -6,7 +6,6 @@
 
 <script>
 import Report from './components/Report.vue'
-
 export default {
   name: 'app',
   components: {
