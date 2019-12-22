@@ -30,6 +30,21 @@ All development stacks used are already setup with in docker. the following are 
 `http://localhost:3030`
 
 ## API endpoints
+##### Get transactional reports  per country 
+Base URL  `http://localhost:3030`
+
+`GET` `/api/reports/transactions
+   ```json
+   [
+      {
+         "Country": "Democratic Republic of the Congo",
+         "Saccos": 3,
+         "Deposit": "1121532351",
+         "Withdrawal": "997672610",
+         "Net": "123859741"
+      }
+   ]
+   ```
 
 
 ## Testing API endpoint (Unit test / integration tests)
@@ -39,3 +54,6 @@ To run tests on the api side:
    ```
    $ docker-compose exec api vendor/bin/php unit
    ```
+
+## Contributors
+1. Aldo Okware 
