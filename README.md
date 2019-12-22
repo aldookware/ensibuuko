@@ -1,8 +1,8 @@
-###  Ensibuuko Test
+#  Ensibuuko Test
 PHP Laravel API  Backend &amp; Frontend, setup using Docker
 
-#### Get started 
-##### General Requirements
+# Get started 
+#### General Requirements
 All development stacks used are already setup with in docker. the following are the tools used
    - PHP 7.2
    - [Docker](https://www.docker.com/) 
@@ -12,7 +12,7 @@ All development stacks used are already setup with in docker. the following are 
    - Node 10.15
    - MYSQL 5.7
 
-#### Setup 
+## Setup 
 - Clone the code base
    ```
    $ git clone https://github.com/aldookware/ensibuuko.git 
@@ -25,5 +25,16 @@ All development stacks used are already setup with in docker. the following are 
   ```
   $ docker-compose up -d
   ```
-- In the browser of choice (chrome/firefox/safari) fully tested with chrome, visit 
+- In the browser of choice (chrome/firefox/safari) fully tested with chrome visit. 
 `http://localhost:3030`
+
+## API endpoints
+
+
+## Testing API endpoint (Unit test / integration tests)
+To run tests on the api side:
+- Ensure the `api` container is up, if not  run `docker-compose up --build` 
+- Run the following `docker-compose` command. 
+   ```
+   $ docker-compose exec api vendor/bin/php unit
+   ```
