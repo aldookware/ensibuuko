@@ -34,7 +34,7 @@ services:
     restart: unless-stopped
     ports:
       - "3306:3306"
-    environment:  # should consider putting this in an env file. 
+    environment: 
       - MYSQL_DATABASE=ensibuuko 
       - MYSQL_USER=user
       - MYSQL_PASSWORD=Test@32_
