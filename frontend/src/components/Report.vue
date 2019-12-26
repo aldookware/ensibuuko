@@ -27,7 +27,6 @@ export default {
   created: async function () {
     try {
       const response = await axios.get(`/api/reports/transactions`)
-      console.log(response)
       this.data = response.data
     } catch (error) {
       throw new Error(
