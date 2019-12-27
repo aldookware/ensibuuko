@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Report msg="Transaction Report"/>
+    <Report msg="Transactions by Country"/>
   </div>
 </template>
 

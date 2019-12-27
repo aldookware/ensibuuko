@@ -22,6 +22,24 @@ class Reports extends Controller
 where a.country=c.country  and c.country = b.country;";
 
         $rows = DB::select(DB::raw($sql));
-        return response()->json($rows, 200);
+        $results = array();
+        $total_withdrawals = 0;
+        $total_deposits = 0;
+        $total_saccos = 0;
+        $total_netgains = 0;
+
+        foreach($rows as $row)
+        {
+            $total_withdrawals += $row->Withdrawal;
+            $total_deposits += $row->Deposit;
+            $total_saccos  += $row->Saccos;
+            $total_netgains += $row->Net;
+        }
+        $results['rows'] = $rows;
+        $results['total_withdrawals'] = $total_withdrawals;
+        $results['total_deposits'] = $total_deposits;
+        $results['total_saccos'] = $total_saccos;
+        $results['total_netgains'] = $total_netgains;
+        return response()->json($results, 200);
     }
 }
