@@ -1,7 +1,19 @@
 <template>
   <div class="hello layout">
     <h1>{{ msg }}</h1>
-    <b-table striped hover :items="data" :fields="fields"></b-table>
+    <b-table
+      small striped hover
+      :items="data"
+      :busy="isBusy"
+      :fields="fields">
+       <b-tfoot>
+      <b-tr>
+        <b-td colspan="7" variant="secondary" class="text-right">
+          Total Rows: <b>5</b>
+        </b-td>
+      </b-tr>
+    </b-tfoot>
+    </b-table>
   </div>
 </template>
 
@@ -20,14 +32,25 @@ export default {
         { key: 'Withdrawal', label: 'Withdrawals' },
         { key: 'Net', label: 'Net Gains' }
       ],
-      data: []
+      data: [],
+      isBusy: false
     }
   },
 
   created: async function () {
+    this.isBusy = true
     try {
       const response = await axios.get(`/api/reports/transactions`)
-      this.data = response.data
+      this.data = response.data.rows
+      const totals = {
+        Country: 'Totals',
+        Saccos: response.data.total_saccos,
+        Deposit: response.data.total_deposits,
+        Withdrawal: response.data.total_withdrawals,
+        Net: response.data.total_netgains
+      }
+      this.data.push(totals)
+      this.isBusy = false
     } catch (error) {
       throw new Error(
         `[Transaction Report] ${error}`
@@ -39,21 +62,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-
 .layout{
   width: 60%;
   margin: 0 auto;

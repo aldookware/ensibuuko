@@ -2,7 +2,8 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
-    node: true
+    node: true,
+    jest: true
   },
   extends: [
     'plugin:vue/essential',
@@ -21,6 +22,6 @@ module.exports = {
   ],
   rules: {
     "no-console": 0,
-    "quotes": 0
+    quotes: 0
   }
 }
