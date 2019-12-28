@@ -6,7 +6,7 @@ services:
     build: ./app
     container_name: api
     volumes:
-      - php-vender:/app/vendor
+      - /app/vendor
     ports:
       - 8000:8000
     depends_on: 
@@ -45,7 +45,7 @@ services:
     build: ./frontend
     container_name: frontend
     volumes: 
-      - node-modules:/usr/src/app/node_modules
+      - /usr/src/app/node_modules
     restart: always
     ports:
       - "8080:8080"
@@ -55,5 +55,3 @@ services:
 volumes:
   mysql-data:
     driver: local
-  php-vender: {}
-  node-modules: {}
