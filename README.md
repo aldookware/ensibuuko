@@ -87,6 +87,7 @@ npm ci --legacy-peer-deps
 npm run test:unit -- --runInBand
 npm run lint
 npm run build
+npm run audit:prod
 ```
 
 ## Security notes

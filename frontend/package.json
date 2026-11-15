@@ -6,10 +6,11 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "audit:prod": "npm audit --omit=dev --audit-level=high"
   },
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^1.21.1",
     "bootstrap-vue": "^2.1.0",
     "core-js": "^3.4.3",
     "vue": "^2.6.10"

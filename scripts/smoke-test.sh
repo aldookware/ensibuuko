@@ -10,12 +10,12 @@ else
   exit 1
 fi
 
-export COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME:-ensibuuko_smoke_$$}
+export COMPOSE_PROJECT_NAME=ensibuuko_smoke_$$
 export APP_KEY=${APP_KEY:-base64:MDEyMzQ1Njc4OWFiY2RlZjAxMjM0NTY3ODlhYmNkZWY=}
 export DB_DATABASE=${DB_DATABASE:-ensibuuko}
 export DB_USERNAME=${DB_USERNAME:-ensibuuko_test}
-export DB_PASSWORD=${DB_PASSWORD:-local-test-password}
-export DB_ROOT_PASSWORD=${DB_ROOT_PASSWORD:-local-root-password}
+export DB_PASSWORD=${DB_PASSWORD:-local test password}
+export DB_ROOT_PASSWORD=${DB_ROOT_PASSWORD:-local root password}
 
 ENDPOINT=${SMOKE_URL:-http://localhost:3030/api/reports/transactions}
 ROOT_URL=${SMOKE_ROOT_URL:-http://localhost:3030/}

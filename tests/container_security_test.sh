@@ -28,5 +28,8 @@ DB_BLOCK=$(awk '/^  db:/{on=1} /^  [a-zA-Z0-9_-]+:/{if(on && $1 != "db:") exit} 
 printf '%s' "$API_BLOCK" | grep -q 'ports:' && fail "API publishes a host port"
 printf '%s' "$DB_BLOCK" | grep -q 'ports:' && fail "database publishes a host port"
 grep -q '3030:' docker-compose.yml || fail "Nginx host port is missing"
+! grep -q 'COMPOSE_PROJECT_NAME:-' scripts/smoke-test.sh || fail "smoke test may reuse and delete a caller-supplied Compose project"
+grep -Fq -- '--password=\"$$MYSQL_ROOT_PASSWORD\"' docker-compose.yml || fail "MySQL healthcheck does not preserve spaces in the root password"
+grep -Fq '"audit:prod": "npm audit --omit=dev --audit-level=high"' frontend/package.json || fail "production frontend audit gate is missing"
 
 echo "container security configuration: PASS"
