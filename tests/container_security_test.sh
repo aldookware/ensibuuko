@@ -7,6 +7,8 @@ fail() { echo "FAIL: $*" >&2; exit 1; }
 [ ! -f app/Dockerfile ] || fail "legacy app/Dockerfile still exists"
 [ ! -f frontend/Dockerfile ] || fail "legacy frontend/Dockerfile still exists"
 ! git ls-files --error-unmatch app/.env >/dev/null 2>&1 || fail "app/.env is tracked"
+grep -q '^APP_ENV=production$' app/.env.example || fail "environment template is not production-safe"
+grep -q '^APP_DEBUG=false$' app/.env.example || fail "environment template enables debug mode"
 
 for pinned in \
   'php:8.5.12-fpm-alpine3.23@sha256:619ba0e2ca1c5debd940479226bd419e9db0931154d2b002fdc94e28fa341c55' \
