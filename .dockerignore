@@ -1,0 +1,8 @@
+.git
+.worktrees
+.superpowers
+.tmp
+**/.env
+**/vendor
+**/node_modules
+frontend/dist
